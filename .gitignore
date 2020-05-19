@@ -1,0 +1,7 @@
+id_rsa_github_deploy_key
+*.box
+project-code-mongodb-store/build_script/packer_cache/*
+Vagrantfile
+project-code-mongodb-store/build_script/.vagrant
+*.cert
+*.key

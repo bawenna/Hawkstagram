@@ -1,0 +1,28 @@
+<% include partials/header %>
+
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" href="/stylesheets/landing.css">
+  <div class="container1">
+    <div class="row">
+    	<div class="col-md-12">
+          <% users.forEach(function(user) { %>
+            <div class="card card1">
+
+              <div class="title">
+                  <a target="_blank"><%= user.username%></a>
+                  <img src="/user.png" class="img-responsive usermug" alt="">
+                </div>
+                <div class="desc">First Name: &nbsp<%= user.firstName%></div>
+                <div class="desc">Last Name: &nbsp<%= user.lastName%></div>
+                <div class="desc">Email: &nbsp<%= user.email%></div>
+                <% if(user.isAdmin != true){ %>
+                  <a class="btn1 btn-primary btn-lg" href="/single-user-info/<%= user._id%>">user-info</a>
+                <form method="POST" action="/user/<%= user._id %>?_method=DELETE">
+                  <button class="btn1 btn-primary btn-lg btn-danger">Delete user</button>
+                </form>
+                <% } %>
+                <hr>
+                </div>
+            <% }) %>
+    </div>
+<% include partials/footer %>

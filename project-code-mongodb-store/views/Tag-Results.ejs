@@ -1,0 +1,28 @@
+<% include partials/header %>
+  <div class="photocontent">
+    <div class style="display:flex; flex-wrap: wrap;">
+      <div class>
+        <% if(files){ %>
+          <% files.forEach(function(file) { %>
+            <div class="card">
+              <% if(file.isImage) { %>
+              <div class="thumbnail">
+              <img src="image/<%= file.filename %>">
+              </div>
+              <p>
+                <a href="/image-info/<%= file.filename%>" class="info btn btn-primary">More Info</a>
+              </p>
+                <p><a href="/index" class="btn1 btn-default btn-lg">Go Back</a></p>
+              <% } else { %>
+                <%= file.filename %>
+                  <% } %>
+            </div>
+            <% }) %>
+              <% } else { %>
+                <p>No Image is Exists!</p>
+                  <p><a href="/index" class="btn1 btn-default btn-lg">Go Back</a></p>
+                <% } %>
+      </div>
+    </div>
+  </div>
+<% include partials/footer %>

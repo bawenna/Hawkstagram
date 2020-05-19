@@ -1,0 +1,22 @@
+<% include partials/header %>
+<link rel="stylesheet" href="/stylesheets/landing.css">
+
+  <div class="container1">
+    <div class="row">
+      <div class="col-md-6 m-auto">
+        <h4><p>User Name: &nbsp<%= user.username%></p></h4><br>
+        <h4><p>First Name: &nbsp<%= user.firstName%></p></h4><br>
+        <h4><p>Last Name: &nbsp<%= user.lastName%></p></h4><br>
+        <h4><p>Email: &nbsp<%= user.email%></p></h4><br>
+        <form action="/email-user/<%= user.email%>" method="POST">
+          <div class="form-group">
+            Title  <br><input type="text" name="title" placeholder="Please enter your email object here."><br>
+            Message <br><textarea rows="4" cols="50" name="Message" placeholder="Please enter your message here."></textarea><br>
+          </div>
+          <input type="submit" value="Send" class="btn btn-default btn-lg"><br>
+          <a href="/index" class="btn btn-default btn-lg">Cancel</a>
+        </form>
+      </div>
+    </div>
+  </div>
+<% include partials/footer %>
